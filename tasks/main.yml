@@ -39,6 +39,8 @@
 # Configure Apache.
 - name: Configure Apache.
   include_tasks: "configure-{{ ansible_os_family }}.yml"
+  when: apache_do_config
+
 
 - name: Ensure Apache has selected state and enabled on boot.
   service:
